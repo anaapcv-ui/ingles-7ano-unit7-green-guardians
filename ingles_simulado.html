@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado — English · Unit 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#07141c;--card:#0f2530;--card2:#163544;--borda:rgba(110,190,220,.22);
+--verde:#38d67a;--verdeH:#0f2e1d;--ambar:#f5b93b;--ambar2:#d99312;
+--vermelho:#e23b4e;--vermelho2:#b81f33;--azul:#4fb0e6;--roxo:#b48be0;--cinza:#5c6b70;
+--texto:#eaf6fb;--texto2:#a7c4d1;--sombra:0 8px 28px rgba(0,0,0,.55);--raio:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--texto);min-height:100vh;
+background-image:radial-gradient(circle at 12% 6%,rgba(79,176,230,.10) 0,transparent 40%),radial-gradient(circle at 90% 96%,rgba(226,59,78,.12) 0,transparent 42%);}
+.header{background:linear-gradient(135deg,#08202b 0%,#0d3346 60%,#08202b 100%);color:#fff;padding:30px 20px 24px;text-align:center;position:relative;overflow:hidden;border-bottom:5px solid var(--vermelho)}
+.header::after{content:'🐾 🌿 🐘 ♻️ 🐢 🌳 🐆 🍃 🐬 🌎';position:absolute;bottom:6px;left:0;right:0;font-size:18px;opacity:.14;letter-spacing:6px;white-space:nowrap}
+.badge-prova{display:inline-block;background:rgba(226,59,78,.18);border:1px solid rgba(226,59,78,.55);color:#ff9aa6;font-size:11px;font-weight:800;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:10px;text-transform:uppercase}
+.header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,8vw,52px);letter-spacing:2px;text-shadow:2px 3px 0 rgba(184,31,51,.5);margin-bottom:4px;font-weight:400;color:#fff}
+.header p{font-size:14px;opacity:.92;font-weight:700}
+.save-panel{max-width:760px;margin:16px auto 0;background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--texto2)}
+.save-panel span.info{flex:1;min-width:140px}
+.btn-sp{background:var(--card2);border:1.5px solid var(--azul);color:var(--azul);padding:5px 11px;border-radius:8px;font-size:11.5px;cursor:pointer;font-family:'Nunito';font-weight:800;transition:all .2s}
+.btn-sp:hover{background:var(--azul);color:#062033}
+.btn-sp.danger{border-color:var(--vermelho);color:#ff9aa6}
+.btn-sp.danger:hover{background:var(--vermelho);color:#fff}
+.intro{max-width:760px;margin:0 auto;padding:16px 16px 4px}
+.intro-box{background:var(--card);border:1px dashed var(--vermelho);border-radius:var(--raio);padding:15px 18px;font-size:14px;line-height:1.6;color:var(--texto2)}
+.intro-box b{color:#ff9aa6}
+.painel-codigo{max-width:760px;margin:16px auto 0;padding:0 16px}
+.codigo-box{display:none;background:linear-gradient(135deg,var(--vermelho2),var(--ambar2));color:#fff;border-radius:var(--raio);padding:18px;text-align:center;box-shadow:var(--sombra)}
+.codigo-box.show{display:block}
+.codigo-box .cod{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:4px;margin:6px 0}
+.codigo-box small{opacity:.95;font-size:12.5px}
+.content{max-width:760px;margin:0 auto;padding:16px 16px 40px}
+.progresso{background:var(--card);border:1px solid var(--borda);border-radius:20px;height:14px;overflow:hidden;margin-bottom:6px}
+.progresso > div{height:100%;width:0;background:linear-gradient(90deg,var(--vermelho2),var(--vermelho));transition:width .3s}
+.prog-txt{font-size:12px;color:var(--texto2);font-weight:700;text-align:center;margin-bottom:16px}
+.q{background:var(--card);border:1.5px solid var(--borda);border-radius:var(--raio);padding:16px 18px;margin-bottom:16px;box-shadow:var(--sombra)}
+.qtop{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.num{display:inline-block;background:var(--card2);color:var(--texto);font-weight:900;font-size:12px;padding:3px 10px;border-radius:20px}
+.tipo{font-size:11px;font-weight:900;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.tipo.mc{background:rgba(79,176,230,.18);color:#9ed6f4;border:1px solid var(--azul)}
+.tipo.fill{background:rgba(245,185,59,.18);color:#f7cd77;border:1px solid var(--ambar)}
+.tipo.reorder{background:rgba(180,139,224,.18);color:#d3bff0;border:1px solid var(--roxo)}
+.enun{font-size:15.5px;font-weight:800;line-height:1.45;margin-bottom:4px}
+.opts{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:10px;background:var(--card2);border:1.5px solid var(--borda);border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;font-size:14.5px}
+.opt:hover{border-color:var(--azul)}
+.opt.sel{border-color:var(--ambar);background:rgba(245,185,59,.12)}
+.opt .letra{width:26px;height:26px;border-radius:50%;background:var(--card);border:1.5px solid var(--borda);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0}
+.opt.sel .letra{background:var(--ambar);color:#3a2800;border-color:var(--ambar)}
+.opt.correta{border-color:var(--verde)!important;background:rgba(56,214,122,.16)!important}
+.opt.correta .letra{background:var(--verde);color:#052414;border-color:var(--verde)}
+.opt.errada{border-color:var(--cinza)!important;background:rgba(92,107,112,.2)!important;opacity:.85}
+.opt.errada .letra{background:var(--cinza);color:#fff;border-color:var(--cinza)}
+.opt.travada{pointer-events:none}
+.fill-in{width:100%;background:var(--card2);border:1.5px solid var(--borda);border-radius:10px;padding:11px 13px;color:var(--texto);font-family:'Nunito';font-size:15px;font-weight:700;margin-top:8px}
+.fill-in:focus{outline:none;border-color:var(--ambar)}
+.fill-in:disabled{opacity:.8}
+.fill-in.certo{border-color:var(--verde);background:rgba(56,214,122,.12)}
+.fill-in.errado{border-color:var(--vermelho);background:rgba(226,59,78,.12)}
+.reo-answer{min-height:46px;background:var(--verdeH);border:1.5px dashed var(--borda);border-radius:10px;padding:8px;margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.reo-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{background:var(--card2);border:1.5px solid var(--azul);color:var(--texto);padding:7px 12px;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;transition:all .12s}
+.chip:hover{background:var(--azul);color:#062033}
+.chip.inans{border-color:var(--ambar);background:rgba(245,185,59,.14)}
+.reo-answer:empty::before{content:'👉 clique nas palavras abaixo para montar a frase';color:var(--texto2);font-size:12.5px;font-weight:700;font-style:italic}
+.reo-clear{margin-top:6px;background:none;border:1px solid var(--borda);color:var(--texto2);font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:8px;cursor:pointer;font-family:'Nunito'}
+.why{display:none;font-size:13px;line-height:1.5;margin-top:9px;padding:9px 12px;border-radius:9px}
+.why.show{display:block}
+.why.ok{background:rgba(56,214,122,.10);border:1px solid var(--verde);color:#d3f4de}
+.why.no{background:rgba(226,59,78,.10);border:1px solid var(--vermelho);color:#ffd0d5}
+.why b{color:var(--ambar)}
+.btn-enviar{display:block;width:100%;background:var(--vermelho);color:#fff;border:none;padding:15px;border-radius:14px;font-weight:900;font-size:17px;cursor:pointer;font-family:'Nunito';margin-top:6px;transition:all .2s}
+.btn-enviar:disabled{background:var(--card2);color:var(--texto2);cursor:not-allowed;border:1.5px solid var(--borda)}
+.btn-enviar:not(:disabled):hover{background:var(--vermelho2)}
+.gab-lock{display:none;max-width:760px;margin:0 auto;padding:0 16px 20px}
+.gab-lock.show{display:block}
+.gab-lock .lk{background:var(--card);border:1.5px dashed var(--vermelho);border-radius:var(--raio);padding:16px;text-align:center}
+.gab-lock input{background:var(--card2);border:1.5px solid var(--borda);border-radius:10px;padding:10px 14px;color:var(--texto);font-family:'Nunito';font-size:16px;font-weight:800;text-align:center;letter-spacing:2px;text-transform:uppercase;width:180px;margin:8px 6px}
+.gab-lock button{background:var(--verde);color:#052414;border:none;padding:10px 18px;border-radius:10px;font-weight:900;cursor:pointer;font-family:'Nunito';font-size:14px}
+.gab-lock .erro{color:#ff9aa6;font-size:13px;font-weight:700;margin-top:6px;min-height:18px}
+.fim{max-width:760px;margin:0 auto 30px;padding:0 16px;display:none}
+.fim.show{display:block}
+.fim .box{background:linear-gradient(135deg,var(--verde),var(--ambar2));color:#062012;border-radius:18px;padding:22px;text-align:center;box-shadow:var(--sombra)}
+.fim h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.fim a{display:inline-block;margin-top:12px;background:#062012;color:var(--verde);font-weight:900;text-decoration:none;padding:10px 22px;border-radius:30px;font-size:14px}
+.footer{text-align:center;font-size:12px;color:var(--texto2);padding:22px}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.66);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1.5px solid var(--vermelho);border-radius:16px;padding:22px;max-width:380px;width:100%;box-shadow:var(--sombra);text-align:center}
+.modal p{font-size:15px;color:var(--texto);line-height:1.5;margin-bottom:16px}
+.modal .mbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.modal button{padding:9px 18px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;font-family:'Nunito';border:none}
+.modal .ok{background:var(--vermelho);color:#fff}
+.modal .cancel{background:var(--card2);color:var(--texto2);border:1.5px solid var(--borda)}
+</style>
+</head>
+<body>
+<div class="header">
+  <span class="badge-prova">Prova de Inglês · 03/09/2026</span>
+  <h1>Simulado · Unit 7</h1>
+  <p>26 questões · múltipla escolha + completar + ordenar</p>
+</div>
+
+<div class="save-panel">
+  <span class="info" id="saveInfo">💾 Progresso salvo automaticamente.</span>
+  <button class="btn-sp" onclick="exportar()">📥 Exportar</button>
+  <button class="btn-sp" onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <button class="btn-sp danger" onclick="pedirZerar()">🗑️ Zerar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importar(event)">
+</div>
+
+<div class="intro">
+  <div class="intro-box">
+    📝 São <b>26 questões</b> de três tipos: <b>múltipla escolha</b>, <b>completar</b> (Fill in the Blank) e
+    <b>ordenar a frase</b> (Reorder). Responda <b>todas</b> antes de enviar. Depois aparece o <b>código</b> (SIM-XX-YY) e a mãe
+    digita para abrir o <b>gabarito comentado</b>. Este é sem áudio, para você treinar de verdade! 💪
+  </div>
+</div>
+
+<div class="painel-codigo">
+  <div class="codigo-box" id="codigoBox">
+    <small>✅ Você acertou <b id="acertos">0</b> de 26! Mostre este código para a mãe:</small>
+    <div class="cod" id="codigo">SIM-00-XX</div>
+    <small>A mãe digita este código lá embaixo para liberar o gabarito.</small>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div class="progresso"><div id="progFill"></div></div>
+  <div class="prog-txt" id="progTxt">0 de 26 respondidas</div>
+  <div id="questoes"></div>
+  <button class="btn-enviar" id="btnEnviar" disabled onclick="enviar()">📨 Enviar respostas</button>
+</div>
+
+<div class="gab-lock" id="gabLock">
+  <div class="lk">
+    <div style="font-weight:900;color:#ff9aa6;font-size:15px">🔓 Liberar gabarito comentado</div>
+    <div style="font-size:13px;color:var(--texto2);margin:6px 0">Mãe/responsável: digite o código SIM-XX-YY que apareceu acima.</div>
+    <input id="inpCod" placeholder="SIM-XX-YY" maxlength="9">
+    <button onclick="liberarGab()">Liberar</button>
+    <div class="erro" id="erroCod"></div>
+  </div>
+</div>
+
+<div class="fim" id="fim">
+  <div class="box">
+    <h3>🏆 Simulado concluído!</h3>
+    <p>Muito bem, Green Guardian! Reveja no gabarito o que errou e você estará pronto(a) para a prova. Good luck! 🍀</p>
+    <a href="index.html">🏠 Voltar ao início</a>
+  </div>
+</div>
+
+<div class="footer">Green Guardians · Unit 7 · Simulado de Inglês · 7º ano · Kit de estudos</div>
+
+<div class="modal-bg" id="modalBg"><div class="modal"><p id="modalMsg"></p><div class="mbtns" id="modalBtns"></div></div></div>
+
+<script>
+/* MODAL */
+function modalInfo(msg){document.getElementById('modalMsg').innerHTML=msg;const b=document.getElementById('modalBtns');b.innerHTML='';const ok=document.createElement('button');ok.className='ok';ok.textContent='OK';ok.onclick=()=>document.getElementById('modalBg').classList.remove('show');b.appendChild(ok);document.getElementById('modalBg').classList.add('show');}
+function modalConfirm(msg,onYes){document.getElementById('modalMsg').innerHTML=msg;const b=document.getElementById('modalBtns');b.innerHTML='';const y=document.createElement('button');y.className='ok';y.textContent='Sim, zerar';y.onclick=()=>{document.getElementById('modalBg').classList.remove('show');onYes();};const n=document.createElement('button');n.className='cancel';n.textContent='Cancelar';n.onclick=()=>document.getElementById('modalBg').classList.remove('show');b.appendChild(y);b.appendChild(n);document.getElementById('modalBg').classList.add('show');}
+
+/* ===== QUESTÕES ===== */
+const QS=[
+ {t:'mc',q:"I ___ never seen a dolphin.",o:[{t:"have",c:true,w:"I → have + particípio (seen)."},{t:"has",c:false,w:"\"I\" usa have, não has."},{t:"am",c:false,w:"Present Perfect usa have, não to be."},{t:"do",c:false,w:"Não se usa \"do\" no Present Perfect."}]},
+ {t:'mc',q:"___ she painted the house?",o:[{t:"Has",c:true,w:"Pergunta com She → Has + particípio."},{t:"Have",c:false,w:"\"she\" usa Has, não Have."},{t:"Did",c:false,w:"\"Did\" é Past Simple, não Present Perfect."},{t:"Does",c:false,w:"\"Does\" é presente simples."}]},
+ {t:'mc',q:"Qual é o particípio do verbo \"see\"?",o:[{t:"seen",c:true,w:"see é irregular: see → seen."},{t:"saw",c:false,w:"\"saw\" é o Past Simple, não o particípio."},{t:"seed",c:false,w:"Não existe como particípio de see."},{t:"seeing",c:false,w:"\"seeing\" é gerúndio (-ing)."}]},
+ {t:'mc',q:"We haven't ___ plastic bags.",o:[{t:"used",c:true,w:"haven't + particípio (used)."},{t:"use",c:false,w:"Depois de haven't vem o particípio, não o infinitivo."},{t:"using",c:false,w:"Não se usa -ing aqui."},{t:"uses",c:false,w:"\"uses\" é presente (he uses)."}]},
+ {t:'mc',q:"Como se diz \"urso polar\"?",o:[{t:"polar bear",c:true,w:"polar bear — duas palavras."},{t:"bear polar",c:false,w:"O adjetivo vem antes: polar bear."},{t:"ice bear",c:false,w:"O certo é polar bear."},{t:"polarbear",c:false,w:"São duas palavras separadas."}]},
+ {t:'mc',q:"Qual destas é um MATERIAL (não um recipiente)?",o:[{t:"wool",c:true,w:"wool (lã) é um material."},{t:"bottle",c:false,w:"bottle é um recipiente."},{t:"box",c:false,w:"box é um recipiente."},{t:"can",c:false,w:"can é um recipiente."}]},
+ {t:'mc',q:"___ they visited the zoo? — Yes, they have.",o:[{t:"Have",c:true,w:"they → Have + particípio."},{t:"Has",c:false,w:"\"they\" usa Have, não Has."},{t:"Did",c:false,w:"A resposta \"have\" mostra que é Present Perfect."},{t:"Are",c:false,w:"\"Are\" é do verbo to be."}]},
+ {t:'mc',q:"Qual é o particípio de \"study\"?",o:[{t:"studied",c:true,w:"consoante + y → -ied: studied."},{t:"studyed",c:false,w:"Troca o y por i: studied."},{t:"studed",c:false,w:"O certo é studied."},{t:"studies",c:false,w:"\"studies\" é presente (she studies)."}]},
+ {t:'mc',q:"Como se diz \"tartaruga\"?",o:[{t:"turtle",c:true,w:"turtle = tartaruga."},{t:"tiger",c:false,w:"tiger = tigre."},{t:"snake",c:false,w:"snake = cobra."},{t:"whale",c:false,w:"whale = baleia."}]},
+ {t:'mc',q:"He has ___ a new organic shampoo.",o:[{t:"tried",c:true,w:"try → tried (consoante+y → -ied)."},{t:"try",c:false,w:"Depois de has vem o particípio (tried)."},{t:"tryed",c:false,w:"O certo é tried."},{t:"trying",c:false,w:"\"trying\" é gerúndio."}]},
+ {t:'mc',q:"Qual destas é um CONTAINER (recipiente)?",o:[{t:"carton",c:true,w:"carton (embalagem/caixinha) é um recipiente."},{t:"plastic",c:false,w:"plastic é um material."},{t:"cotton",c:false,w:"cotton é um material."},{t:"metal",c:false,w:"metal é um material."}]},
+ {t:'mc',q:"Como se diz \"cobra\"?",o:[{t:"snake",c:true,w:"snake = cobra."},{t:"leopard",c:false,w:"leopard = leopardo."},{t:"turtle",c:false,w:"turtle = tartaruga."},{t:"panda",c:false,w:"panda = panda."}]},
+ {t:'mc',q:"She ___ recycled the paper.",o:[{t:"has",c:true,w:"She → has + particípio (recycled)."},{t:"have",c:false,w:"\"she\" usa has, não have."},{t:"is",c:false,w:"Present Perfect usa has, não to be."},{t:"was",c:false,w:"\"was\" é passado do to be."}]},
+ {t:'mc',q:"Qual frase está no Present Perfect?",o:[{t:"They have reduced pollution.",c:true,w:"have + particípio (reduced) = Present Perfect."},{t:"They reduce pollution.",c:false,w:"presente simples, sem have/has."},{t:"They reduced it last year.",c:false,w:"tem \"last year\" → Past Simple."},{t:"They will reduce it.",c:false,w:"\"will\" indica futuro."}]},
+ /* FILL (6) */
+ {t:'fill',q:"Complete com a forma curta de \"have not\": \"They ___ seen a tiger.\"",accept:["haven't","havent","have not"],disp:"haven't",w:"A negativa curta com They é <b>haven't</b> (have not)."},
+ {t:'fill',q:"Escreva o particípio do verbo \"stop\":",accept:["stopped"],disp:"stopped",w:"vogal tônica + consoante → dobra o p: <b>stopped</b>."},
+ {t:'fill',q:"Escreva \"papelão\" em inglês:",accept:["cardboard"],disp:"cardboard",w:"papelão = <b>cardboard</b>."},
+ {t:'fill',q:"Complete a pergunta: \"___ you seen a panda?\"",accept:["have"],disp:"Have",w:"Pergunta com you → <b>Have</b> + particípio."},
+ {t:'fill',q:"Escreva \"golfinho\" em inglês:",accept:["dolphin"],disp:"dolphin",w:"golfinho = <b>dolphin</b>."},
+ {t:'fill',q:"Complete a forma curta: \"I have = I___\" (com apóstrofo)",accept:["i've","ive","'ve","ve"],disp:"I've",w:"I have = <b>I've</b>."},
+ /* REORDER (6) */
+ {t:'reorder',q:"Ordene para formar a pergunta correta:",words:["Have","you","seen","a","tiger"],w:"A ordem certa é: <b>Have you seen a tiger?</b>"},
+ {t:'reorder',q:"Ordene para formar a frase correta:",words:["She","has","painted","the","house"],w:"A ordem certa é: <b>She has painted the house.</b>"},
+ {t:'reorder',q:"Ordene para formar a frase correta:",words:["They","haven't","recycled","the","glass"],w:"A ordem certa é: <b>They haven't recycled the glass.</b>"},
+ {t:'reorder',q:"Ordene para formar a frase correta:",words:["We","have","seen","a","panda"],w:"A ordem certa é: <b>We have seen a panda.</b>"},
+ {t:'reorder',q:"Ordene para formar a pergunta correta:",words:["Has","he","touched","a","snake"],w:"A ordem certa é: <b>Has he touched a snake?</b>"},
+ {t:'reorder',q:"Ordene para formar a frase correta:",words:["I","have","used","a","paper","bag"],w:"A ordem certa é: <b>I have used a paper bag.</b>"}
+];
+
+/* PRNG */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function shuffleIdx(len,seed){const arr=[...Array(len).keys()];const rnd=mulberry32(seed);for(let i=len-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+const LETRAS=["A","B","C","D"];
+function norm(s){return (s||"").toLowerCase().trim().replace(/[.?!,]+$/,"").replace(/\s+/g," ");}
+
+/* ARMAZENAMENTO */
+const SK="ingles_7ano_u7_simulado_v1";let mem={};
+function store(o){try{localStorage.setItem(SK,JSON.stringify(o));}catch(e){mem=o;}}
+function load(){try{const s=localStorage.getItem(SK);if(s)return JSON.parse(s);}catch(e){}return mem&&mem.ordem?mem:null;}
+
+let dados=load();
+if(!dados){
+  dados={ordem:{},poolOrd:{},resp:{},reo:{},enviado:false,codigo:"",acertos:0,gab:false};
+  QS.forEach((qq,qi)=>{
+    if(qq.t==='mc')dados.ordem[qi]=shuffleIdx(qq.o.length,qi*3+1);
+    if(qq.t==='reorder')dados.poolOrd[qi]=shuffleIdx(qq.words.length,qi*211+5);
+  });
+  store(dados);
+}
+
+/* RENDER */
+const cont=document.getElementById("questoes");
+function render(){
+  cont.innerHTML="";
+  QS.forEach((qq,qi)=>{
+    const tipoLabel=qq.t==='mc'?'<span class="tipo mc">Múltipla escolha</span>':(qq.t==='fill'?'<span class="tipo fill">Complete</span>':'<span class="tipo reorder">Ordene a frase</span>');
+    let body="";
+    if(qq.t==='mc'){
+      let opts="";
+      dados.ordem[qi].forEach((oi,pos)=>{
+        const op=qq.o[oi];const sel=dados.resp[qi]===oi;
+        let cls="opt";
+        if(dados.enviado){cls+=" travada";if(op.c)cls+=" correta";else if(sel)cls+=" errada";}
+        else if(sel)cls+=" sel";
+        opts+=`<div class="${cls}" onclick="pickMC(${qi},${oi})"><span class="letra">${LETRAS[pos]}</span><span>${op.t}</span></div>`;
+      });
+      body=`<div class="opts">${opts}</div>`;
+      if(dados.gab){const oc=qq.o.find(o=>o.c);body+=`<div class="why show ok">✅ Correta: <b>${oc.t}</b> — ${oc.w}</div>`;
+        const sel=dados.resp[qi];if(sel!=null&&!qq.o[sel].c)body+=`<div class="why show no">⛔ Você marcou \"${qq.o[sel].t}\": ${qq.o[sel].w}</div>`;}
+    }
+    else if(qq.t==='fill'){
+      const val=dados.resp[qi]||"";
+      let cls="fill-in";
+      if(dados.enviado){cls+=(qq.accept.map(norm).includes(norm(val))?" certo":" errado");}
+      body=`<input class="${cls}" id="f_${qi}" ${dados.enviado?"disabled":""} value="${val.replace(/"/g,"&quot;")}" oninput="pickFill(${qi},this.value)" placeholder="digite aqui...">`;
+      if(dados.gab){const acertou=qq.accept.map(norm).includes(norm(val));
+        body+=`<div class="why show ${acertou?'ok':'no'}">${acertou?'✅':'⛔'} Resposta certa: <b>${qq.disp}</b> — ${qq.w}${acertou?'':' (você escreveu: "'+(val||'—')+'")'}</div>`;}
+    }
+    else if(qq.t==='reorder'){
+      const ans=dados.reo[qi]||[];
+      const inans=new Set(ans);
+      let ansHtml=ans.map(wi=>`<span class="chip inans" onclick="reoRemove(${qi},${wi})">${qq.words[wi]}</span>`).join("");
+      let poolHtml=dados.poolOrd[qi].filter(wi=>!inans.has(wi)).map(wi=>`<span class="chip" onclick="reoAdd(${qi},${wi})">${qq.words[wi]}</span>`).join("");
+      body=`<div class="reo-answer" id="ans_${qi}">${ansHtml}</div>`;
+      if(!dados.enviado)body+=`<div class="reo-pool">${poolHtml}</div><button class="reo-clear" onclick="reoClear(${qi})">↺ limpar</button>`;
+      if(dados.gab){const acertou=JSON.stringify(ans)===JSON.stringify([...Array(qq.words.length).keys()]);
+        body+=`<div class="why show ${acertou?'ok':'no'}">${acertou?'✅':'⛔'} ${qq.w}${acertou?'':' (a sua ficou: "'+ans.map(i=>qq.words[i]).join(" ")+'")'}</div>`;}
+    }
+    cont.innerHTML+=`<div class="q"><div class="qtop"><span class="num">Q${qi+1}</span>${tipoLabel}</div><div class="enun">${qq.q}</div>${body}</div>`;
+  });
+  atualizar();
+}
+function pickMC(qi,oi){if(dados.enviado)return;dados.resp[qi]=oi;store(dados);render();}
+function pickFill(qi,v){if(dados.enviado)return;dados.resp[qi]=v;store(dados);atualizar();}
+function reoAdd(qi,wi){if(dados.enviado)return;if(!dados.reo[qi])dados.reo[qi]=[];if(!dados.reo[qi].includes(wi))dados.reo[qi].push(wi);store(dados);render();}
+function reoRemove(qi,wi){if(dados.enviado)return;dados.reo[qi]=(dados.reo[qi]||[]).filter(x=>x!==wi);store(dados);render();}
+function reoClear(qi){if(dados.enviado)return;dados.reo[qi]=[];store(dados);render();}
+function respondida(qi){const qq=QS[qi];if(qq.t==='mc')return dados.resp[qi]!=null;if(qq.t==='fill')return (dados.resp[qi]||"").trim().length>0;if(qq.t==='reorder')return (dados.reo[qi]||[]).length===qq.words.length;}
+function atualizar(){
+  let n=0;QS.forEach((_,qi)=>{if(respondida(qi))n++;});
+  document.getElementById("progFill").style.width=(n/QS.length*100)+"%";
+  document.getElementById("progTxt").textContent=n+" de "+QS.length+" respondidas";
+  document.getElementById("btnEnviar").disabled=(n<QS.length||dados.enviado);
+  if(dados.enviado){
+    document.getElementById("btnEnviar").style.display="none";
+    document.getElementById("codigoBox").classList.add("show");
+    document.getElementById("acertos").textContent=dados.acertos;
+    document.getElementById("codigo").textContent=dados.codigo;
+    document.getElementById("gabLock").classList.add("show");
+    if(dados.gab){document.getElementById("gabLock").style.display="none";document.getElementById("fim").classList.add("show");}
+  }
+}
+function corrige(qi){const qq=QS[qi];
+  if(qq.t==='mc')return qq.o[dados.resp[qi]]&&qq.o[dados.resp[qi]].c;
+  if(qq.t==='fill')return qq.accept.map(norm).includes(norm(dados.resp[qi]||""));
+  if(qq.t==='reorder')return JSON.stringify(dados.reo[qi]||[])===JSON.stringify([...Array(qq.words.length).keys()]);
+}
+function enviar(){
+  let n=0;QS.forEach((_,qi)=>{if(respondida(qi))n++;});if(n<QS.length)return;
+  let ac=0;QS.forEach((_,qi)=>{if(corrige(qi))ac++;});
+  dados.acertos=ac;dados.enviado=true;dados.codigo=gerarCodigo(ac);store(dados);render();
+  document.getElementById("codigoBox").scrollIntoView({behavior:"smooth"});
+}
+function gerarCodigo(ac){const L="ABCDEFGHJKLMNPQRSTUVWXYZ";const y=L[Math.floor(Math.random()*L.length)]+L[Math.floor(Math.random()*L.length)];return "SIM-"+String(ac).padStart(2,"0")+"-"+y;}
+function liberarGab(){const v=document.getElementById("inpCod").value.trim().toUpperCase();if(v===dados.codigo){dados.gab=true;store(dados);render();document.getElementById("fim").scrollIntoView({behavior:"smooth"});}else{document.getElementById("erroCod").textContent="Código incorreto. Confira as letras (sem I e O).";}}
+function marcarHora(){const d=new Date();document.getElementById("saveInfo").textContent="💾 Salvo às "+d.toLocaleTimeString('pt-BR').slice(0,5);}
+function exportar(){const b=new Blob([JSON.stringify(dados,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="simulado_ingles_u7.json";a.click();}
+function importar(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{dados=JSON.parse(e.target.result);store(dados);render();modalInfo("✅ Progresso importado!");}catch(x){modalInfo("❌ Arquivo inválido.");}};r.readAsText(f);}
+function pedirZerar(){modalConfirm("Zerar o Simulado? (para outra criança fazer do zero)",()=>{try{localStorage.removeItem(SK);}catch(e){}mem={};dados={ordem:{},poolOrd:{},resp:{},reo:{},enviado:false,codigo:"",acertos:0,gab:false};QS.forEach((qq,qi)=>{if(qq.t==='mc')dados.ordem[qi]=shuffleIdx(qq.o.length,qi*3+1);if(qq.t==='reorder')dados.poolOrd[qi]=shuffleIdx(qq.words.length,qi*211+5);});store(dados);document.getElementById("codigoBox").classList.remove("show");document.getElementById("gabLock").classList.remove("show");document.getElementById("gabLock").style.display="";document.getElementById("fim").classList.remove("show");document.getElementById("btnEnviar").style.display="";render();window.scrollTo(0,0);});}
+render();
+</script>
+</body>
+</html>
