@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo — English · Unit 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#08160f;--card:#12291c;--card2:#193826;--borda:rgba(120,220,150,.22);
+--verde:#38d67a;--verde2:#1f9d54;--verdeH:#0f2e1d;--ambar:#f5b93b;--ambar2:#d99312;
+--vermelho:#e2513b;--azul:#4fb0e6;--roxo:#b48be0;
+--texto:#eafaef;--texto2:#a9c9b5;--sombra:0 8px 28px rgba(0,0,0,.5);--raio:16px;--postit:#fff3b0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--texto);min-height:100vh;
+background-image:radial-gradient(circle at 12% 6%,rgba(56,214,122,.10) 0,transparent 40%),radial-gradient(circle at 90% 96%,rgba(245,185,59,.10) 0,transparent 42%);}
+.header{background:linear-gradient(135deg,#0d2818 0%,#1c4a2c 60%,#0d2818 100%);color:#fff;padding:30px 20px 24px;text-align:center;position:relative;overflow:hidden;border-bottom:5px solid var(--verde)}
+.header::after{content:'🐾 🌿 🐘 ♻️ 🐢 🌳 🐆 🍃 🐬 🌎';position:absolute;bottom:6px;left:0;right:0;font-size:18px;opacity:.16;letter-spacing:6px;white-space:nowrap}
+.badge-prova{display:inline-block;background:rgba(56,214,122,.16);border:1px solid rgba(56,214,122,.5);color:var(--verde);font-size:11px;font-weight:800;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:10px;text-transform:uppercase}
+.header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,8vw,52px);letter-spacing:2px;text-shadow:2px 3px 0 rgba(31,157,84,.5);margin-bottom:4px;font-weight:400;color:var(--verde)}
+.header p{font-size:14px;opacity:.92;font-weight:700}
+.save-panel{max-width:780px;margin:16px auto 0;background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--texto2)}
+.save-panel span.info{flex:1;min-width:140px}
+.btn-sp{background:var(--card2);border:1.5px solid var(--azul);color:var(--azul);padding:5px 11px;border-radius:8px;font-size:11.5px;cursor:pointer;font-family:'Nunito';font-weight:800;transition:all .2s}
+.btn-sp:hover{background:var(--azul);color:#062033}
+.btn-sp.danger{border-color:var(--vermelho);color:#ff9d8c}
+.btn-sp.danger:hover{background:var(--vermelho);color:#fff}
+.nav{position:sticky;top:0;z-index:90;background:rgba(8,22,15,.96);backdrop-filter:blur(6px);border-bottom:2px solid var(--borda);padding:10px 12px;display:flex;gap:8px;overflow-x:auto}
+.nav a{flex:0 0 auto;text-decoration:none;font-size:12.5px;font-weight:800;color:var(--verde);background:var(--card2);border:1.5px solid var(--borda);padding:7px 13px;border-radius:30px;white-space:nowrap;transition:all .2s}
+.nav a:hover{background:var(--verde);color:#052414;border-color:var(--verde)}
+.content{max-width:780px;margin:0 auto;padding:18px 16px 80px}
+.audio-hint{font-size:12.5px;color:var(--texto2);background:var(--card);border:1px dashed var(--ambar);border-radius:10px;padding:8px 12px;margin-bottom:16px;font-weight:700}
+.sec{margin-bottom:34px;scroll-margin-top:66px}
+.sec-titulo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec-emoji{font-size:30px;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.4))}
+.sec-titulo h2{font-size:clamp(20px,5vw,27px);color:var(--verde);font-weight:900;line-height:1.1}
+.sec-titulo small{display:block;font-size:12px;color:var(--texto2);font-weight:700;margin-top:2px}
+.regra{background:var(--card);border:1.5px solid var(--borda);border-left:6px solid var(--azul);border-radius:12px;padding:14px 16px;margin-bottom:11px;box-shadow:var(--sombra)}
+.regra h4{font-size:15.5px;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:7px}
+.regra p{font-size:14px;line-height:1.6;color:var(--texto)}
+.regra b{color:var(--verde)}
+.regra .ej{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(79,176,230,.10);border-radius:8px;padding:8px 11px;margin-top:7px;font-size:13.5px;color:#cfe8ff;font-weight:700;font-style:italic}
+.regra .ej .pt-mini{color:var(--texto2);font-weight:600;font-style:normal}
+.regra .ej b{color:#bfe3ff}
+.regra .btn-audio{width:26px;height:26px;font-size:12px}
+.btn-audio{width:30px;height:30px;border-radius:50%;border:none;background:var(--ambar);color:#3a2800;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.35);flex-shrink:0}
+.btn-audio:hover{background:#fff;transform:scale(1.12)}
+.btn-audio:active{transform:scale(.92)}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:11px}
+.vc{background:var(--card);border:1.5px solid var(--borda);border-radius:14px;padding:12px 12px 14px;box-shadow:var(--sombra);text-align:center;position:relative;transition:transform .15s}
+.vc:hover{transform:translateY(-3px)}
+.vc .emo{font-size:30px;display:block;margin-bottom:4px}
+.vc .en{font-size:16px;font-weight:900;color:var(--ambar);line-height:1.15}
+.vc .pt{font-size:13px;color:var(--texto2);font-weight:700;margin-top:3px}
+.vc .pt::before{content:'🇧🇷 ';font-size:10px}
+.vc .btn-audio{position:absolute;top:7px;right:7px}
+.subt{color:var(--ambar);font-weight:900;font-size:16px;margin:14px 0 8px}
+.tabela-wrap{background:var(--card);border:1.5px solid var(--borda);border-radius:14px;padding:14px;box-shadow:var(--sombra);margin-bottom:14px;overflow-x:auto}
+.tabela-wrap h3{font-size:16px;color:var(--roxo);font-weight:900;margin-bottom:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:280px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+th{background:linear-gradient(135deg,var(--roxo),#8a5fc4);color:#fff;font-weight:800;font-size:12px}
+td:first-child{font-weight:800;color:var(--texto2)}
+td b{color:var(--verde)}
+tr:last-child td{border-bottom:none}
+.suf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
+.suf{background:var(--card);border:1.5px solid var(--borda);border-radius:12px;padding:11px 13px;box-shadow:var(--sombra);position:relative}
+.suf .verbo{font-size:13.5px;font-weight:800;color:var(--texto2)}
+.suf .arrow{color:var(--ambar);font-weight:900;margin:0 5px}
+.suf .nome{font-size:15.5px;font-weight:900;color:var(--ambar)}
+.suf .pt{font-size:12.5px;color:var(--texto2);font-weight:700;margin-top:2px;display:block}
+.suf .btn-audio{position:absolute;top:9px;right:9px;width:26px;height:26px;font-size:12px}
+.postit{background:var(--postit);border-radius:4px;padding:14px 16px;margin:14px 0;box-shadow:2px 4px 12px rgba(0,0,0,.4);position:relative;transform:rotate(-.6deg);font-size:14px;line-height:1.55;color:#5c4a00}
+.postit::before{content:'📌';position:absolute;top:-12px;left:14px;font-size:22px}
+.postit b{color:#a35a00}
+.pegadinha{background:rgba(226,81,59,.13);border:1.5px solid var(--vermelho);border-radius:12px;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.55;color:#ffd8cf}
+.pegadinha .tit{font-weight:900;color:#ff9d8c;display:flex;align-items:center;gap:7px;margin-bottom:5px;font-size:15px}
+.pegadinha b{color:#ffb3a5}
+.check-fim{max-width:780px;margin:0 auto;padding:0 16px 60px}
+.check-fim .cf-box{background:linear-gradient(135deg,var(--verde2),var(--ambar2));color:#fff;border-radius:18px;padding:22px;text-align:center;box-shadow:var(--sombra)}
+.check-fim h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.check-fim p{font-size:14px;opacity:.97;line-height:1.5}
+.check-fim a{display:inline-block;margin-top:12px;background:#fff;color:var(--verde2);font-weight:900;text-decoration:none;padding:10px 22px;border-radius:30px;font-size:14px}
+.footer{text-align:center;font-size:12px;color:var(--texto2);padding:20px}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.66);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1.5px solid var(--verde);border-radius:16px;padding:22px;max-width:380px;width:100%;box-shadow:var(--sombra);text-align:center}
+.modal p{font-size:15px;color:var(--texto);line-height:1.5;margin-bottom:16px}
+.modal .mbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.modal button{padding:9px 18px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;font-family:'Nunito';border:none}
+.modal .ok{background:var(--verde);color:#052414}
+.modal .cancel{background:var(--card2);color:var(--texto2);border:1.5px solid var(--borda)}
+</style>
+</head>
+<body>
+<div class="header">
+  <span class="badge-prova">Prova de Inglês · 03/09/2026</span>
+  <h1>Resumo · Unit 7</h1>
+  <p>Present Perfect · Endangered Animals · Materials &amp; Containers 🔊</p>
+</div>
+
+<div class="save-panel">
+  <span class="info" id="saveInfo">💾 Progresso salvo automaticamente.</span>
+  <button class="btn-sp" onclick="exportar()">📥 Exportar</button>
+  <button class="btn-sp" onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <button class="btn-sp danger" onclick="pedirZerar()">🗑️ Zerar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importar(event)">
+</div>
+
+<nav class="nav">
+  <a href="#pp">⏳ Present Perfect</a>
+  <a href="#spelling">✍️ Escrita -ed</a>
+  <a href="#animals">🐾 Animals</a>
+  <a href="#materials">♻️ Materials</a>
+  <a href="#glos">📖 Glossário</a>
+</nav>
+
+<div class="content">
+  <div class="audio-hint">🔊 Dica: clique nos botões dourados para <b>ouvir as palavras e frases em inglês</b> (voz do navegador).</div>
+
+  <!-- PRESENT PERFECT -->
+  <section class="sec" id="pp">
+    <div class="sec-titulo"><span class="sec-emoji">⏳</span><div><h2>Present Perfect</h2><small>Reference Book p. 42</small></div></div>
+    <div class="regra">
+      <h4>🧠 Para que serve?</h4>
+      <p>Falar de <b>experiências</b> ou ações do passado <b>sem dizer o dia exato</b>, ou de algo do passado que <b>tem efeito no presente</b>.</p>
+      <div class="ej">I have organized a competition. <span class="pt-mini">→ Eu organizei uma competição.</span> <button class="btn-audio" onclick="speak('I have organized a competition')">🔊</button></div>
+    </div>
+    <div class="regra" style="border-left-color:var(--verde)">
+      <h4>🧱 Como se forma? (afirmativa)</h4>
+      <p><b>have</b> / <b>has</b> + <b>particípio</b> (past participle). I, You, We, They → <b>have</b> · He, She, It → <b>has</b>.</p>
+      <div class="ej">She has painted the house. <span class="pt-mini">→ Ela pintou a casa.</span> <button class="btn-audio" onclick="speak('She has painted the house')">🔊</button></div>
+    </div>
+    <div class="regra" style="border-left-color:var(--ambar)">
+      <h4>➖ Negativa</h4>
+      <p><b>haven't</b> (have not) / <b>hasn't</b> (has not) + particípio.</p>
+      <div class="ej">They haven't reduced their screen time. <span class="pt-mini">→ Eles não reduziram o tempo de tela.</span> <button class="btn-audio" onclick="speak(&quot;They haven't reduced their screen time&quot;)">🔊</button></div>
+    </div>
+    <div class="regra" style="border-left-color:var(--roxo)">
+      <h4>❓ Pergunta e resposta curta</h4>
+      <p>Pergunta: <b>Have / Has</b> + sujeito + particípio? Na resposta curta <b>não repita o verbo</b>.</p>
+      <div class="ej">Have you seen a snake? — Yes, I have. / No, I haven't. <button class="btn-audio" onclick="speak('Have you seen a snake? Yes I have. No I haven\\'t.')">🔊</button></div>
+    </div>
+    <div class="tabela-wrap">
+      <h3>📋 Formas curtas</h3>
+      <table>
+        <tr><th>Completo</th><th>Curto</th></tr>
+        <tr><td>I have</td><td><b>I've</b></td></tr>
+        <tr><td>He has / She has</td><td><b>He's / She's</b></td></tr>
+        <tr><td>They have</td><td><b>They've</b></td></tr>
+        <tr><td>have not / has not</td><td><b>haven't / hasn't</b></td></tr>
+      </table>
+    </div>
+    <div class="postit"><b>Macete:</b> se a frase diz o dia exato (<b>yesterday</b>, <b>last week</b>, uma data), NÃO é Present Perfect — é Past Simple. O Present Perfect é "quando não importa quando". ⏳</div>
+  </section>
+
+  <!-- SPELLING -->
+  <section class="sec" id="spelling">
+    <div class="sec-titulo"><span class="sec-emoji">✍️</span><div><h2>Escrita do particípio (-ed)</h2><small>Regular verbs · Reference Book p. 42</small></div></div>
+    <div class="suf-grid" id="grid-spell"></div>
+    <div class="postit"><b>Irregulares para decorar:</b> buy → <b>bought</b> (comprar), see → <b>seen</b> (ver), have → <b>had</b> (ter). Esses não seguem a regra do -ed. Toque no 🔊 no glossário para ouvir.</div>
+    <div class="pegadinha"><div class="tit">⚠️ Cuidado na escrita</div>
+      <b>study → studied</b> (troca o y por i) e <b>stop → stopped</b> (dobra o p). Não escreva "studyed" nem "stoped". ✍️</div>
+  </section>
+
+  <!-- ANIMALS -->
+  <section class="sec" id="animals">
+    <div class="sec-titulo"><span class="sec-emoji">🐾</span><div><h2>Endangered Animals</h2><small>Animais em extinção · Reference Book p. 41</small></div></div>
+    <div class="vocab-grid" id="grid-animals"></div>
+    <div class="pegadinha"><div class="tit">⚠️ Escrita difícil</div>
+      <b>rhinoceros</b> (rinoceronte) tem "h" depois do r · <b>polar bear</b> (urso polar) são duas palavras · <b>orangutan</b> (orangotango). ✍️</div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section class="sec" id="materials">
+    <div class="sec-titulo"><span class="sec-emoji">♻️</span><div><h2>Materials &amp; Containers</h2><small>Materiais e recipientes · Reference Book p. 41</small></div></div>
+    <p class="subt">🧵 Materials (do que a coisa é feita)</p>
+    <div class="vocab-grid" id="grid-materials"></div>
+    <p class="subt">🫙 Containers (onde a gente guarda)</p>
+    <div class="vocab-grid" id="grid-containers"></div>
+    <div class="postit"><b>Como não confundir:</b> pergunte "isso é do que a coisa é FEITA?" → é <b>material</b> (plastic, glass, paper). "É onde eu GUARDO?" → é <b>container</b> (bottle, box, can). Um <b>plastic bottle</b> tem os dois! ♻️</div>
+  </section>
+
+  <!-- GLOSSARIO -->
+  <section class="sec" id="glos">
+    <div class="sec-titulo"><span class="sec-emoji">📖</span><div><h2>Glossário de verbos</h2><small>Base → particípio · com áudio</small></div></div>
+    <div class="suf-grid" id="grid-glos"></div>
+  </section>
+</div>
+
+<div class="check-fim">
+  <div class="cf-box">
+    <h3>🌳 Revisão completa!</h3>
+    <p>Você revisou tudo o que cai na prova. Agora feche com o <b>Simulado</b> para treinar de verdade. Good luck, Green Guardian! 🍀</p>
+    <a href="ingles_simulado.html">📝 Ir para o Simulado →</a>
+  </div>
+</div>
+
+<div class="footer">Green Guardians · Unit 7 · Resumo de Inglês · 7º ano · Kit de estudos</div>
+
+<div class="modal-bg" id="modalBg"><div class="modal"><p id="modalMsg"></p><div class="mbtns" id="modalBtns"></div></div></div>
+
+<script>
+/* ÁUDIO */
+function speak(txt){if(!('speechSynthesis' in window)){modalInfo('Sem áudio de voz. Tente o Chrome.');return;}
+  window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang='en-US';u.rate=0.82;
+  const vs=window.speechSynthesis.getVoices();const en=vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith('en'));if(en)u.voice=en;
+  window.speechSynthesis.speak(u);}
+if('speechSynthesis' in window){window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}
+/* MODAL */
+function modalInfo(msg){document.getElementById('modalMsg').innerHTML=msg;const b=document.getElementById('modalBtns');b.innerHTML='';const ok=document.createElement('button');ok.className='ok';ok.textContent='OK';ok.onclick=()=>document.getElementById('modalBg').classList.remove('show');b.appendChild(ok);document.getElementById('modalBg').classList.add('show');}
+function modalConfirm(msg,onYes){document.getElementById('modalMsg').innerHTML=msg;const b=document.getElementById('modalBtns');b.innerHTML='';const y=document.createElement('button');y.className='ok';y.textContent='Sim, zerar';y.onclick=()=>{document.getElementById('modalBg').classList.remove('show');onYes();};const n=document.createElement('button');n.className='cancel';n.textContent='Cancelar';n.onclick=()=>document.getElementById('modalBg').classList.remove('show');b.appendChild(y);b.appendChild(n);document.getElementById('modalBg').classList.add('show');}
+/* DADOS */
+const animais=[["panda","panda","🐼"],["turtle","tartaruga","🐢"],["orangutan","orangotango","🦧"],["tiger","tigre","🐯"],["leopard","leopardo","🐆"],["snake","cobra","🐍"],["elephant","elefante","🐘"],["rhinoceros","rinoceronte","🦏"],["dolphin","golfinho","🐬"],["polar bear","urso polar","🐻‍❄️"]];
+const materiais=[["aluminum","alumínio","🥫"],["cardboard","papelão","📦"],["cotton","algodão","👕"],["glass","vidro","🥃"],["metal","metal","🔩"],["paper","papel","📄"],["plastic","plástico","🥤"],["wool","lã","🧶"]];
+const recipientes=[["bag","sacola / saco","🛍️"],["bottle","garrafa","🍾"],["box","caixa","📦"],["can","lata","🥫"],["carton","embalagem","🧃"],["jar","pote / jarra","🫙"]];
+const spelling=[["want","wanted","+ -ed (a maioria)"],["like","liked","termina em -e: só + d"],["study","studied","consoante+y: -ied"],["stop","stopped","dobra a consoante"]];
+const glos=[["organize","organized","organizar"],["paint","painted","pintar"],["reduce","reduced","reduzir"],["use","used","usar"],["recycle","recycled","reciclar"],["buy","bought","comprar (irreg.)"],["see","seen","ver (irreg.)"],["have","had","ter (irreg.)"]];
+function cardVocab(a){return `<div class="vc"><button class="btn-audio" onclick="speak('${a[0].replace(/'/g,"\\'")}')" title="Ouvir">🔊</button><span class="emo">${a[2]}</span><div class="en">${a[0]}</div><div class="pt">${a[1]}</div></div>`;}
+function cardSuf(v,n,pt){return `<div class="suf"><button class="btn-audio" onclick="speak('${n.replace(/'/g,"\\'")}')" title="Ouvir">🔊</button><span class="verbo">${v}</span><span class="arrow">→</span><span class="nome">${n}</span><span class="pt">${pt}</span></div>`;}
+document.getElementById("grid-animals").innerHTML=animais.map(cardVocab).join("");
+document.getElementById("grid-materials").innerHTML=materiais.map(cardVocab).join("");
+document.getElementById("grid-containers").innerHTML=recipientes.map(cardVocab).join("");
+document.getElementById("grid-spell").innerHTML=spelling.map(a=>cardSuf(a[0],a[1],a[2])).join("");
+document.getElementById("grid-glos").innerHTML=glos.map(a=>cardSuf(a[0],a[1],a[2])).join("");
+/* SALVAMENTO */
+const SK="ingles_7ano_u7_resumo_v1";let mem={};
+function estado(){return{scroll:window.scrollY,ts:Date.now()};}
+function salvar(){const o=estado();try{localStorage.setItem(SK,JSON.stringify(o));}catch(e){mem=o;}marcarHora();}
+function marcarHora(){const d=new Date();document.getElementById("saveInfo").textContent="💾 Salvo às "+d.toLocaleTimeString('pt-BR').slice(0,5)+" de "+d.toLocaleDateString('pt-BR');}
+function carregar(){let s=null;try{s=JSON.parse(localStorage.getItem(SK)||"null");}catch(e){s=mem;}if(s){if(s.scroll)setTimeout(()=>window.scrollTo(0,s.scroll),300);if(s.ts){const d=new Date(s.ts);document.getElementById("saveInfo").textContent="💾 Último acesso: "+d.toLocaleString('pt-BR').slice(0,17);}}}
+let st;window.addEventListener("scroll",()=>{clearTimeout(st);st=setTimeout(salvar,600);});
+function exportar(){const b=new Blob([JSON.stringify(estado(),null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="resumo_ingles_u7.json";a.click();}
+function importar(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const s=JSON.parse(e.target.result);if(s.scroll)window.scrollTo(0,s.scroll);marcarHora();modalInfo("✅ Progresso importado!");}catch(x){modalInfo("❌ Arquivo inválido.");}};r.readAsText(f);}
+function pedirZerar(){modalConfirm("Zerar o progresso deste Resumo?",()=>{try{localStorage.removeItem(SK);}catch(e){}mem={};window.scrollTo(0,0);document.getElementById("saveInfo").textContent="💾 Progresso zerado.";});}
+carregar();
+</script>
+</body>
+</html>
