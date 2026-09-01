@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada — English · Unit 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#08160f;--card:#12291c;--card2:#193826;--borda:rgba(120,220,150,.22);
+--verde:#38d67a;--verde2:#1f9d54;--verdeH:#0f2e1d;--ambar:#f5b93b;--ambar2:#d99312;
+--vermelho:#e2513b;--vermelho2:#b8351f;--azul:#4fb0e6;
+--texto:#eafaef;--texto2:#a9c9b5;--sombra:0 8px 28px rgba(0,0,0,.5);
+--raio:16px;--postit:#fff3b0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--texto);min-height:100vh;
+background-image:radial-gradient(circle at 12% 6%,rgba(56,214,122,.10) 0,transparent 40%),radial-gradient(circle at 90% 96%,rgba(245,185,59,.10) 0,transparent 42%);}
+.header{background:linear-gradient(135deg,#0d2818 0%,#1c4a2c 60%,#0d2818 100%);color:#fff;padding:32px 20px 26px;text-align:center;position:relative;overflow:hidden;border-bottom:5px solid var(--verde)}
+.header::after{content:'🐾 🌿 🐘 ♻️ 🐢 🌳 🐆 🍃 🐬 🌎';position:absolute;bottom:6px;left:0;right:0;font-size:18px;opacity:.16;letter-spacing:6px;white-space:nowrap}
+.badge-prova{display:inline-block;background:rgba(56,214,122,.16);border:1px solid rgba(56,214,122,.5);color:var(--verde);font-size:11px;font-weight:800;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:10px;text-transform:uppercase}
+.header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,8vw,56px);letter-spacing:2px;text-shadow:2px 3px 0 rgba(31,157,84,.5);margin-bottom:4px;font-weight:400;color:var(--verde)}
+.header p{font-size:14px;opacity:.92;font-weight:700}
+.save-panel{max-width:780px;margin:16px auto 0;background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--texto2)}
+.save-panel span.info{flex:1;min-width:140px}
+.btn-sp{background:var(--card2);border:1.5px solid var(--azul);color:var(--azul);padding:5px 11px;border-radius:8px;font-size:11.5px;cursor:pointer;font-family:'Nunito';font-weight:800;transition:all .2s}
+.btn-sp:hover{background:var(--azul);color:#062033}
+.btn-sp.danger{border-color:var(--vermelho);color:#ff9d8c}
+.btn-sp.danger:hover{background:var(--vermelho);color:#fff}
+.intro{max-width:780px;margin:0 auto;padding:18px 16px 4px}
+.intro-box{background:var(--card);border:1px dashed var(--verde);border-radius:var(--raio);padding:16px 18px;font-size:14.5px;line-height:1.6;color:var(--texto2)}
+.intro-box b{color:var(--verde)}
+.progresso{max-width:780px;margin:14px auto 0;padding:0 16px}
+.barra{background:var(--card);border:1px solid var(--borda);border-radius:20px;height:16px;overflow:hidden}
+.barra > div{height:100%;width:0;background:linear-gradient(90deg,var(--verde2),var(--verde));transition:width .4s;border-radius:20px}
+.prog-txt{font-size:12px;color:var(--texto2);font-weight:700;text-align:center;margin-top:6px}
+.content{max-width:780px;margin:0 auto;padding:18px 16px 40px}
+.bloco{background:var(--card);border:1.5px solid var(--borda);border-radius:var(--raio);margin-bottom:22px;box-shadow:var(--sombra);overflow:hidden;position:relative}
+.bloco.travado{opacity:.55;filter:grayscale(.4)}
+.bloco-head{background:linear-gradient(135deg,var(--verdeH),#153a24);padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--borda)}
+.bloco-head .n{background:var(--verde);color:#052414;font-weight:900;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.bloco-head h2{font-size:clamp(17px,4.5vw,22px);color:var(--verde);font-weight:900;line-height:1.15}
+.bloco-head .lock{margin-left:auto;font-size:20px}
+.bloco-body{padding:18px}
+.bloco.travado .bloco-body{display:none}
+.texto p{font-size:14.5px;line-height:1.65;margin-bottom:11px;color:var(--texto)}
+.texto b{color:var(--verde)}
+.frase{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(56,214,122,.09);border-left:4px solid var(--verde);border-radius:8px;padding:9px 12px;margin:9px 0;font-size:14px;font-weight:700;font-style:italic;color:#d3f4de}
+.frase .pt-mini{color:var(--texto2);font-weight:600;font-style:normal}
+.btn-audio{width:30px;height:30px;border-radius:50%;border:none;background:var(--ambar);color:#3a2800;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.35);flex-shrink:0}
+.btn-audio:hover{background:#fff;transform:scale(1.12)}
+.btn-audio:active{transform:scale(.92)}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:6px 0 4px}
+.vc{background:var(--card2);border:1.5px solid var(--borda);border-radius:12px;padding:11px 10px 12px;text-align:center;position:relative}
+.vc .emo{font-size:26px;display:block;margin-bottom:3px}
+.vc .en{font-size:15px;font-weight:900;color:var(--ambar);line-height:1.15}
+.vc .pt{font-size:12.5px;color:var(--texto2);font-weight:700;margin-top:2px}
+.vc .btn-audio{position:absolute;top:6px;right:6px;width:26px;height:26px;font-size:12px}
+.perguntas{margin-top:16px;border-top:1px dashed var(--borda);padding-top:14px}
+.perguntas .pg-tit{font-size:13px;font-weight:900;color:var(--ambar);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.pergunta{margin-bottom:14px}
+.pergunta label{display:block;font-size:14.5px;font-weight:700;color:var(--texto);margin-bottom:6px;line-height:1.5}
+.pergunta textarea{width:100%;min-height:64px;background:var(--verdeH);border:1.5px solid var(--borda);border-radius:10px;padding:10px 12px;color:var(--texto);font-family:'Nunito';font-size:14px;resize:vertical}
+.pergunta textarea:focus{outline:none;border-color:var(--verde)}
+.pergunta textarea:disabled{opacity:.7}
+.modelo{display:none;margin-top:8px;background:rgba(56,214,122,.10);border:1px solid var(--verde);border-radius:9px;padding:10px 12px;font-size:13.5px;line-height:1.55;color:#d3f4de}
+.modelo.show{display:block}
+.modelo b{color:var(--verde)}
+.btn-conf{background:var(--verde);color:#052414;border:none;padding:10px 20px;border-radius:10px;font-weight:900;font-size:14px;cursor:pointer;font-family:'Nunito';transition:all .2s}
+.btn-conf:disabled{background:var(--card2);color:var(--texto2);cursor:not-allowed;border:1.5px solid var(--borda)}
+.btn-conf:not(:disabled):hover{background:#fff}
+.auto-aval{display:none;margin-top:12px;background:var(--card2);border:1.5px solid var(--borda);border-radius:10px;padding:12px}
+.auto-aval.show{display:block}
+.auto-aval p{font-size:13px;font-weight:700;color:var(--texto2);margin-bottom:8px}
+.aa-btns{display:flex;gap:8px;flex-wrap:wrap}
+.aa-btns button{border:1.5px solid var(--borda);background:var(--verdeH);color:var(--texto);padding:7px 13px;border-radius:20px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Nunito';transition:all .2s}
+.aa-btns button.sel-ok{background:var(--verde);color:#052414;border-color:var(--verde)}
+.aa-btns button.sel-rev{background:var(--ambar);color:#3a2800;border-color:var(--ambar)}
+.pegadinhas{background:rgba(226,81,59,.12);border:1.5px solid var(--vermelho);border-radius:var(--raio);padding:18px;margin-bottom:22px}
+.pegadinhas h3{color:#ff9d8c;font-weight:900;font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.pegadinhas ol{margin-left:20px}
+.pegadinhas li{font-size:14px;line-height:1.55;color:#ffd8cf;margin-bottom:9px}
+.pegadinhas li b{color:#ffb3a5}
+.cobertura{background:var(--card);border:1.5px solid var(--borda);border-radius:var(--raio);padding:16px;margin-bottom:22px;overflow-x:auto}
+.cobertura h3{color:var(--azul);font-weight:900;font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:280px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+th{background:linear-gradient(135deg,var(--azul),#2b7fb8);color:#fff;font-weight:800;font-size:12px}
+td:first-child{font-weight:800;color:var(--texto)}
+td b{color:var(--verde)}
+tr:last-child td{border-bottom:none}
+.oculto{display:none}
+.fim{background:linear-gradient(135deg,var(--verde2),var(--ambar2));color:#fff;border-radius:18px;padding:22px;text-align:center;box-shadow:var(--sombra);margin-bottom:22px}
+.fim h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:30px;letter-spacing:1px;margin-bottom:8px}
+.fim p{font-size:14px;opacity:.97;line-height:1.5}
+.fim a{display:inline-block;margin-top:12px;background:#fff;color:var(--verde2);font-weight:900;text-decoration:none;padding:10px 22px;border-radius:30px;font-size:14px}
+.footer{text-align:center;font-size:12px;color:var(--texto2);padding:22px}
+/* modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.66);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1.5px solid var(--verde);border-radius:16px;padding:22px;max-width:380px;width:100%;box-shadow:var(--sombra);text-align:center}
+.modal p{font-size:15px;color:var(--texto);line-height:1.5;margin-bottom:16px}
+.modal .mbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.modal button{padding:9px 18px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;font-family:'Nunito';border:none}
+.modal .ok{background:var(--verde);color:#052414}
+.modal .cancel{background:var(--card2);color:var(--texto2);border:1.5px solid var(--borda)}
+</style>
+</head>
+<body>
+<div class="header">
+  <span class="badge-prova">Prova de Inglês · 03/09/2026</span>
+  <h1>Green Guardians · Unit 7</h1>
+  <p>Leitura Guiada · 7º ano · Present Perfect · Endangered Animals · Materials 🔊</p>
+</div>
+
+<div class="save-panel">
+  <span class="info" id="saveInfo">💾 Progresso salvo automaticamente.</span>
+  <button class="btn-sp" onclick="exportar()">📥 Exportar</button>
+  <button class="btn-sp" onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <button class="btn-sp danger" onclick="pedirZerar()">🗑️ Zerar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importar(event)">
+</div>
+
+<div class="intro">
+  <div class="intro-box">
+    🌿 Welcome, jovem aprendiz! Você é um(a) <b>Green Guardian</b> (guardião da natureza). Nesta leitura você vai
+    aprender o <b>Present Perfect</b>, os <b>animais em extinção</b> (Endangered Animals) e os <b>materiais e recipientes</b>
+    (Materials &amp; Containers). Leia cada bloco, <b>escreva</b> suas respostas nas caixinhas e clique em <b>Conferir</b>.
+    O próximo bloco só abre depois! Toque no <b>🔊</b> para <b>ouvir em inglês</b>.
+  </div>
+</div>
+
+<div class="progresso">
+  <div class="barra"><div id="barraFill"></div></div>
+  <div class="prog-txt" id="progTxt">0 de 6 blocos concluídos</div>
+</div>
+
+<div class="content" id="content"></div>
+
+<div class="content oculto" id="finalArea" style="padding-top:0">
+  <div class="pegadinhas">
+    <h3>⚠️ 10 Pegadinhas da prova</h3>
+    <ol>
+      <li>O <b>Present Perfect</b> NÃO diz o dia exato. Se a frase tem <b>yesterday</b>, <b>last week</b> ou uma data, é <b>Past Simple</b> — não Present Perfect.</li>
+      <li><b>He / She / It</b> sempre usa <b>has</b>, nunca "have". (He <b>has</b> seen, não "he have seen".)</li>
+      <li>Depois de <b>have / has</b> vem o <b>particípio</b> (past participle): see → <b>seen</b>, buy → <b>bought</b>, não o presente do verbo.</li>
+      <li>Na <b>resposta curta</b> NÃO repita o verbo: "Yes, I <b>have</b>." (não "Yes, I have seen").</li>
+      <li>A <b>negativa</b> é <b>haven't / hasn't</b> + particípio: "They <b>haven't reduced</b>..."</li>
+      <li>Na <b>pergunta</b> a ordem muda: <b>Have</b> + sujeito + particípio? ("<b>Have</b> you seen a tiger?")</li>
+      <li><b>rhinoceros</b> tem "h" depois do "r" e termina em "-ceros". Cuidado com a escrita!</li>
+      <li><b>polar bear</b> são <b>duas palavras</b> (urso polar).</li>
+      <li>Não confunda <b>material</b> (do que é feito: plastic, glass, paper) com <b>container / recipiente</b> (onde se guarda: bottle, box, can).</li>
+      <li>Particípio regular = <b>-ed</b>, mas atenção à escrita: <b>study → studied</b> (troca y por i) e <b>stop → stopped</b> (dobra o p).</li>
+    </ol>
+  </div>
+  <div class="cobertura">
+    <h3>🗺️ Onde cada tópico está</h3>
+    <table>
+      <tr><th>Tópico da prova</th><th>Bloco</th></tr>
+      <tr><td>O que é e quando usar o Present Perfect</td><td><b>Bloco 1</b></td></tr>
+      <tr><td>Como montar: have/has + particípio + escrita</td><td><b>Bloco 2</b></td></tr>
+      <tr><td>Negativa, pergunta e resposta curta</td><td><b>Bloco 3</b></td></tr>
+      <tr><td>Endangered Animals (animais em extinção)</td><td><b>Bloco 4</b></td></tr>
+      <tr><td>Materials &amp; Containers (materiais e recipientes)</td><td><b>Bloco 5</b></td></tr>
+      <tr><td>Juntando Present Perfect + os temas</td><td><b>Bloco 6</b></td></tr>
+    </table>
+  </div>
+  <div class="fim">
+    <h3>🌳 Great job, Green Guardian!</h3>
+    <p>Você terminou a Leitura Guiada. Agora teste o que aprendeu no <b>Quiz</b> e depois feche tudo com o <b>Simulado</b>. Good luck! 🍀</p>
+    <a href="ingles_quiz.html">🎯 Ir para o Quiz →</a>
+  </div>
+</div>
+
+<div class="footer">Green Guardians · Unit 7 · Leitura Guiada de Inglês · 7º ano · Kit de estudos</div>
+
+<!-- modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <p id="modalMsg"></p>
+    <div class="mbtns" id="modalBtns"></div>
+  </div>
+</div>
+
+<script>
+/* ============ ÁUDIO ============ */
+function speak(txt){
+  if(!('speechSynthesis' in window)){modalInfo('Seu navegador não tem áudio de voz. Tente o Chrome.');return;}
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(txt);u.lang='en-US';u.rate=0.82;
+  const vs=window.speechSynthesis.getVoices();
+  const en=vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith('en'));
+  if(en)u.voice=en;
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}
+
+/* ============ MODAL (sem alert/confirm) ============ */
+function modalInfo(msg){
+  document.getElementById('modalMsg').innerHTML=msg;
+  const b=document.getElementById('modalBtns');b.innerHTML='';
+  const ok=document.createElement('button');ok.className='ok';ok.textContent='OK';
+  ok.onclick=()=>document.getElementById('modalBg').classList.remove('show');
+  b.appendChild(ok);document.getElementById('modalBg').classList.add('show');
+}
+function modalConfirm(msg,onYes){
+  document.getElementById('modalMsg').innerHTML=msg;
+  const b=document.getElementById('modalBtns');b.innerHTML='';
+  const yes=document.createElement('button');yes.className='ok';yes.textContent='Sim, zerar';
+  yes.onclick=()=>{document.getElementById('modalBg').classList.remove('show');onYes();};
+  const no=document.createElement('button');no.className='cancel';no.textContent='Cancelar';
+  no.onclick=()=>document.getElementById('modalBg').classList.remove('show');
+  b.appendChild(yes);b.appendChild(no);document.getElementById('modalBg').classList.add('show');
+}
+
+/* ============ ARMAZENAMENTO com try/catch + memória reserva ============ */
+const SK="ingles_7ano_u7_leitura_v1";
+let mem={};
+function store(obj){try{localStorage.setItem(SK,JSON.stringify(obj));}catch(e){mem=obj;}}
+function load(){try{const s=localStorage.getItem(SK);if(s)return JSON.parse(s);}catch(e){}return mem&&mem.blocos?mem:null;}
+
+/* ============ DADOS DOS BLOCOS ============ */
+const animais=[
+ ["panda","panda","🐼"],["turtle","tartaruga","🐢"],["orangutan","orangotango","🦧"],
+ ["tiger","tigre","🐯"],["leopard","leopardo","🐆"],["snake","cobra","🐍"],
+ ["elephant","elefante","🐘"],["rhinoceros","rinoceronte","🦏"],["dolphin","golfinho","🐬"],
+ ["polar bear","urso polar","🐻‍❄️"]
+];
+const materiais=[
+ ["aluminum","alumínio","🥫"],["cardboard","papelão","📦"],["cotton","algodão","👕"],
+ ["glass","vidro","🥃"],["metal","metal","🔩"],["paper","papel","📄"],
+ ["plastic","plástico","🥤"],["wool","lã","🧶"]
+];
+const recipientes=[
+ ["bag","sacola / saco","🛍️"],["bottle","garrafa","🍾"],["box","caixa","📦"],
+ ["can","lata","🥫"],["carton","embalagem (caixa)","🧃"],["jar","pote / jarra","🫙"]
+];
+function gridVocab(arr){return '<div class="vocab-grid">'+arr.map(a=>
+ `<div class="vc"><button class="btn-audio" onclick="speak('${a[0].replace(/'/g,"\\'")}')" title="Ouvir">🔊</button><span class="emo">${a[2]}</span><div class="en">${a[0]}</div><div class="pt">${a[1]}</div></div>`).join('')+'</div>';}
+
+const blocos=[
+ {n:1,titulo:"O que é o Present Perfect e quando usar",
+  texto:`<p>O <b>Present Perfect</b> é um tempo verbal do inglês que a gente usa para falar de <b>experiências</b> ou <b>ações do passado quando NÃO importa o dia exato</b> em que aconteceram. Em português, muitas vezes ele vira o nosso passado simples, mas o segredo é: <b>não dizemos quando</b>.</p>
+  <div class="frase">I have organized a competition. <span class="pt-mini">→ Eu organizei uma competição (em algum momento).</span> <button class="btn-audio" onclick="speak('I have organized a competition')">🔊</button></div>
+  <p>Também usamos o Present Perfect para falar de algo que aconteceu no passado mas que <b>tem efeito agora, no presente</b>. Ou seja, o resultado ainda dá pra ver.</p>
+  <div class="frase">She has painted the house. <span class="pt-mini">→ Ela pintou a casa (e agora a casa está pintada).</span> <button class="btn-audio" onclick="speak('She has painted the house')">🔊</button></div>
+  <p>Compare: se eu digo <b>"I saw a tiger yesterday"</b> (eu vi um tigre ontem), eu digo o dia — isso é <b>Past Simple</b>. Mas se eu digo <b>"I have seen a tiger"</b> (eu já vi um tigre), eu só conto a experiência, sem dizer quando — isso é <b>Present Perfect</b>.</p>`,
+  perguntas:[
+   {q:"Com suas palavras, para que serve o Present Perfect? Dê um exemplo de situação em português.",m:"Serve para falar de experiências ou ações do passado sem dizer o dia exato, ou de algo que ainda tem efeito no presente. Ex.: \"Eu já viajei de avião\" (não digo quando)."},
+   {q:"Qual a diferença entre \"I have seen a tiger\" e \"I saw a tiger yesterday\"?",m:"\"I have seen a tiger\" é Present Perfect: conta a experiência sem dizer quando. \"I saw a tiger yesterday\" é Past Simple: diz o dia exato (yesterday)."},
+   {q:"Traduza para o inglês usando Present Perfect: \"Ela pintou a casa.\"",m:"She has painted the house."}
+  ]},
+ {n:2,titulo:"Como montar: have / has + particípio",
+  texto:`<p>A fórmula do Present Perfect é: <b>have</b> ou <b>has</b> + o <b>particípio</b> do verbo (past participle). A escolha entre <b>have</b> e <b>has</b> depende do sujeito:</p>
+  <div class="frase"><b>I, You, We, They</b> → <b>have</b> &nbsp;·&nbsp; <b>He, She, It</b> → <b>has</b> <button class="btn-audio" onclick="speak('I have, he has')">🔊</button></div>
+  <p>O <b>particípio</b> dos verbos <b>regulares</b> termina em <b>-ed</b>, igual ao passado simples. Mas atenção às regras de escrita:</p>
+  <p>👉 A maioria: só add <b>-ed</b> → want → <b>wanted</b>.<br>
+  👉 Verbo que termina em <b>-e</b>: add só <b>-d</b> → like → <b>liked</b>.<br>
+  👉 Termina em <b>consoante + y</b>: troca o y por <b>-ied</b> → study → <b>studied</b>.<br>
+  👉 Termina em vogal tônica + consoante: <b>dobra</b> a consoante → stop → <b>stopped</b>.</p>
+  <p>Alguns verbos são <b>irregulares</b> e têm particípio próprio (você decora): <b>buy → bought</b>, <b>see → seen</b>, <b>paint → painted</b> (esse é regular). Também existe a <b>forma curta</b>: I have = <b>I've</b>, He has = <b>He's</b>, They have = <b>They've</b>.</p>
+  <div class="frase">They have bought local food. = They've bought local food. <button class="btn-audio" onclick="speak(&quot;They have bought local food&quot;)">🔊</button></div>`,
+  perguntas:[
+   {q:"Quando usamos \"has\" e quando usamos \"have\"? Escreva os pronomes de cada um.",m:"has → He, She, It. have → I, You, We, They."},
+   {q:"Complete e explique: \"study\" vira ______ e \"stop\" vira ______.",m:"study → studied (termina em consoante + y, troca y por -ied). stop → stopped (vogal tônica + consoante, dobra o p e add -ed)."},
+   {q:"Escreva \"They have bought local food\" na forma curta (com apóstrofo).",m:"They've bought local food."}
+  ]},
+ {n:3,titulo:"Negativa, pergunta e resposta curta",
+  texto:`<p>Para a <b>forma negativa</b>, usamos <b>haven't</b> (have not) ou <b>hasn't</b> (has not) + o particípio.</p>
+  <div class="frase">They haven't reduced their screen time. <span class="pt-mini">→ Eles não reduziram o tempo de tela.</span> <button class="btn-audio" onclick="speak(&quot;They haven't reduced their screen time&quot;)">🔊</button></div>
+  <p>Para fazer uma <b>pergunta</b>, a ordem muda: colocamos <b>Have</b> ou <b>Has</b> na frente, depois o sujeito, depois o particípio.</p>
+  <div class="frase">Have you seen a snake? <span class="pt-mini">→ Você já viu uma cobra?</span> <button class="btn-audio" onclick="speak('Have you seen a snake?')">🔊</button></div>
+  <p>Nas <b>respostas curtas</b>, a gente <b>não repete o verbo</b>. Responde só com have/has ou haven't/hasn't.</p>
+  <div class="frase">Have you touched a polar bear? — Yes, I have. / No, I haven't. <button class="btn-audio" onclick="speak('Have you touched a polar bear? Yes I have. No I haven\\'t.')">🔊</button></div>`,
+  perguntas:[
+   {q:"Como se faz a forma negativa do Present Perfect? Dê um exemplo em inglês.",m:"Usa haven't / hasn't + particípio. Ex.: \"She hasn't painted the house.\" / \"They haven't reduced their screen time.\""},
+   {q:"Transforme em pergunta: \"You have seen a tiger.\"",m:"Have you seen a tiger?"},
+   {q:"Responda de forma curta (sim e não): \"Have you touched a polar bear?\"",m:"Yes, I have. / No, I haven't."}
+  ]},
+ {n:4,titulo:"Endangered Animals — animais em extinção",
+  texto:`<p><b>Endangered animals</b> são os <b>animais em extinção</b>, ou seja, que correm o risco de desaparecer da natureza. Aprenda o nome deles em inglês (toque no 🔊 para ouvir):</p>
+  ${gridVocab(animais)}
+  <p>💡 Cuidado com a escrita de <b>rhinoceros</b> (rinoceronte) e lembre que <b>polar bear</b> (urso polar) são <b>duas palavras</b>.</p>`,
+  perguntas:[
+   {q:"Escreva em inglês três animais em extinção que você aprendeu.",m:"Exemplos: tiger, elephant, dolphin, panda, turtle, orangutan, leopard, snake, rhinoceros, polar bear."},
+   {q:"O que significa \"endangered animals\"?",m:"São os animais em extinção — que correm risco de desaparecer da natureza."},
+   {q:"Traduza para o inglês: \"Você já viu um rinoceronte?\"",m:"Have you seen a rhinoceros?"}
+  ]},
+ {n:5,titulo:"Materials and Containers — materiais e recipientes",
+  texto:`<p><b>Materials</b> são os <b>materiais</b> — do que uma coisa é feita. <b>Containers</b> são os <b>recipientes</b> — onde a gente guarda as coisas. Esse vocabulário combina com reciclagem (recycling) e o meio ambiente. 🔊</p>
+  <p style="color:var(--ambar);font-weight:900;margin:4px 0 2px">🧵 Materials (materiais)</p>
+  ${gridVocab(materiais)}
+  <p style="color:var(--ambar);font-weight:900;margin:10px 0 2px">🫙 Containers (recipientes)</p>
+  ${gridVocab(recipientes)}
+  <p>💡 Um <b>plastic bottle</b> é uma garrafa (recipiente) feita de plástico (material). Sabendo separar material de recipiente, você acerta as questões de reciclagem!</p>`,
+  perguntas:[
+   {q:"Qual a diferença entre \"material\" e \"container\"? Dê um exemplo de cada em inglês.",m:"Material é do que a coisa é feita (ex.: glass, paper, plastic). Container é o recipiente onde se guarda (ex.: bottle, box, can)."},
+   {q:"Escreva em inglês: uma garrafa, uma caixa, uma lata.",m:"a bottle, a box, a can."},
+   {q:"De que material é feito, normalmente, um saco de supermercado? Escreva em inglês.",m:"Plastic (a plastic bag). Também pode ser paper (a paper bag)."}
+  ]},
+ {n:6,titulo:"Juntando tudo: Present Perfect + os temas",
+  texto:`<p>Agora vamos <b>juntar tudo</b>. Na prova, o Present Perfect aparece com os animais e com a reciclagem. Veja exemplos:</p>
+  <div class="frase">Have you ever seen a panda? <span class="pt-mini">→ Você já viu um panda?</span> <button class="btn-audio" onclick="speak('Have you ever seen a panda?')">🔊</button></div>
+  <div class="frase">We have recycled paper and glass. <span class="pt-mini">→ Nós reciclamos papel e vidro.</span> <button class="btn-audio" onclick="speak('We have recycled paper and glass')">🔊</button></div>
+  <div class="frase">They haven't used plastic bags. <span class="pt-mini">→ Eles não usaram sacolas plásticas.</span> <button class="btn-audio" onclick="speak(&quot;They haven't used plastic bags&quot;)">🔊</button></div>
+  <p>Repare que usamos <b>have/has + particípio</b>, e que a palavra <b>ever</b> (já, alguma vez) aparece muito em perguntas do Present Perfect. Como Green Guardian, você já sabe falar de animais e de reciclagem em inglês! 🌎</p>`,
+  perguntas:[
+   {q:"Monte uma pergunta no Present Perfect usando um animal em extinção.",m:"Ex.: \"Have you seen a tiger?\" / \"Has she touched a turtle?\" / \"Have you ever seen an elephant?\""},
+   {q:"Complete a frase na forma negativa: \"They ______ (not use) plastic bags.\"",m:"They haven't used plastic bags."},
+   {q:"Escreva uma frase em inglês dizendo algo que você já reciclou (Present Perfect + material).",m:"Ex.: \"I have recycled paper.\" / \"We have recycled plastic and glass.\""}
+  ]}
+];
+
+/* ============ ESTADO ============ */
+let dados=load()||{blocos:{},ts:Date.now()};
+if(!dados.blocos)dados.blocos={};
+
+/* ============ RENDER ============ */
+const cont=document.getElementById("content");
+function render(){
+  cont.innerHTML="";
+  blocos.forEach((b,i)=>{
+    const feito=dados.blocos[b.n]&&dados.blocos[b.n].conferido;
+    const anteriorFeito=i===0||(dados.blocos[blocos[i-1].n]&&dados.blocos[blocos[i-1].n].conferido);
+    const travado=!anteriorFeito&&!feito;
+    const div=document.createElement("div");
+    div.className="bloco"+(travado?" travado":"");
+    let pergHtml="";
+    b.perguntas.forEach((p,qi)=>{
+      const val=(dados.blocos[b.n]&&dados.blocos[b.n].respostas&&dados.blocos[b.n].respostas[qi])||"";
+      pergHtml+=`<div class="pergunta">
+        <label>${qi+1}) ${p.q}</label>
+        <textarea id="t_${b.n}_${qi}" ${feito?"disabled":""} oninput="checarBloco(${b.n})">${val.replace(/</g,"&lt;")}</textarea>
+        <div class="modelo${feito?" show":""}" id="m_${b.n}_${qi}"><b>Resposta modelo:</b> ${p.m}</div>
+      </div>`;
+    });
+    const aaSel=(dados.blocos[b.n]&&dados.blocos[b.n].aval)||"";
+    div.innerHTML=`
+      <div class="bloco-head">
+        <span class="n">${b.n}</span>
+        <h2>${b.titulo}</h2>
+        <span class="lock">${feito?"✅":(travado?"🔒":"📖")}</span>
+      </div>
+      <div class="bloco-body">
+        <div class="texto">${b.texto}</div>
+        <div class="perguntas">
+          <div class="pg-tit">✍️ Escreva suas respostas (3 perguntas)</div>
+          ${pergHtml}
+          <button class="btn-conf" id="btn_${b.n}" ${feito?"disabled":"disabled"} onclick="conferir(${b.n})">✅ Conferir respostas</button>
+          <div class="auto-aval${feito?" show":""}" id="aa_${b.n}">
+            <p>Como você se saiu neste bloco?</p>
+            <div class="aa-btns">
+              <button class="${aaSel==='ok'?'sel-ok':''}" onclick="avaliar(${b.n},'ok')">✅ Acertei</button>
+              <button class="${aaSel==='rev'?'sel-rev':''}" onclick="avaliar(${b.n},'rev')">🔁 Preciso revisar</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    cont.appendChild(div);
+    if(!feito&&!travado)checarBloco(b.n);
+  });
+  atualizarProgresso();
+}
+function checarBloco(n){
+  const b=blocos.find(x=>x.n===n);
+  let ok=true;
+  b.perguntas.forEach((p,qi)=>{const t=document.getElementById(`t_${n}_${qi}`);if(!t||t.value.trim().length<3)ok=false;});
+  const btn=document.getElementById(`btn_${n}`);
+  if(btn)btn.disabled=!ok;
+  // auto-save rascunho
+  if(!dados.blocos[n])dados.blocos[n]={};
+  if(!dados.blocos[n].conferido){
+    dados.blocos[n].respostas=b.perguntas.map((p,qi)=>{const t=document.getElementById(`t_${n}_${qi}`);return t?t.value:"";});
+    salvar();
+  }
+}
+function conferir(n){
+  const b=blocos.find(x=>x.n===n);
+  if(!dados.blocos[n])dados.blocos[n]={};
+  dados.blocos[n].respostas=b.perguntas.map((p,qi)=>document.getElementById(`t_${n}_${qi}`).value);
+  dados.blocos[n].conferido=true;
+  salvar();
+  render();
+  const el=document.getElementById(`aa_${n}`);if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function avaliar(n,v){
+  if(!dados.blocos[n])dados.blocos[n]={};
+  dados.blocos[n].aval=v;salvar();
+  const aa=document.getElementById(`aa_${n}`);
+  if(aa){aa.querySelectorAll('button').forEach(bt=>{bt.classList.remove('sel-ok','sel-rev');});
+    aa.querySelectorAll('button')[v==='ok'?0:1].classList.add(v==='ok'?'sel-ok':'sel-rev');}
+}
+function atualizarProgresso(){
+  const feitos=blocos.filter(b=>dados.blocos[b.n]&&dados.blocos[b.n].conferido).length;
+  document.getElementById("barraFill").style.width=(feitos/blocos.length*100)+"%";
+  document.getElementById("progTxt").textContent=feitos+" de "+blocos.length+" blocos concluídos";
+  document.getElementById("finalArea").classList.toggle("oculto",feitos<blocos.length);
+}
+function salvar(){dados.ts=Date.now();store(dados);marcarHora();}
+function marcarHora(){const d=new Date();document.getElementById("saveInfo").textContent="💾 Salvo às "+d.toLocaleTimeString('pt-BR').slice(0,5)+" de "+d.toLocaleDateString('pt-BR');}
+
+/* ============ EXPORT / IMPORT / ZERAR ============ */
+function exportar(){const blob=new Blob([JSON.stringify(dados,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="leitura_guiada_ingles_u7.json";a.click();}
+function importar(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{dados=JSON.parse(e.target.result);if(!dados.blocos)dados.blocos={};salvar();render();modalInfo("✅ Progresso importado com sucesso!");}catch(x){modalInfo("❌ Arquivo inválido.");}};r.readAsText(f);}
+function pedirZerar(){modalConfirm("Zerar todo o progresso desta Leitura Guiada? (para outra criança começar do zero)",()=>{dados={blocos:{},ts:Date.now()};try{localStorage.removeItem(SK);}catch(e){}mem={};render();document.getElementById("saveInfo").textContent="💾 Progresso zerado.";window.scrollTo(0,0);});}
+
+render();
+if(dados.ts){const d=new Date(dados.ts);document.getElementById("saveInfo").textContent="💾 Último acesso: "+d.toLocaleString('pt-BR').slice(0,17);}
+</script>
+</body>
+</html>
